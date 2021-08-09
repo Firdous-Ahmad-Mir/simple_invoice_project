@@ -26,6 +26,7 @@ public function insert($table, $parameters)
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
+            $_SESSION['success']='Data Inserted  successfully';
         } catch (Exception $e) {
             //
         }
@@ -47,13 +48,14 @@ public function insert($table, $parameters)
     $i++; }
     $string .= $id;
 
-    var_dump($string);
+   
        
 
         try {
             $statement = $this->pdo->prepare($string);
 
             $statement->execute($parameters);
+            $_SESSION['success']='Updated successfully';
         } catch (Exception $e) {
         
         }
@@ -66,7 +68,9 @@ public function insert($table, $parameters)
         try {
             $statement = $this->pdo->prepare($query);
 
+
             $statement->execute($parameters);
+            $_SESSION['error']='Deleted successfully';
         } catch (Exception $e) {
             //
         }
