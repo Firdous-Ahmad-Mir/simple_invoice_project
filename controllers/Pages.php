@@ -11,7 +11,6 @@ class Pages
 
     }
     public function all_records(){
-        $about = "Hello I Am About";
         $data = App::get('database')->selectAll('invice','');
 
         $list= array('coustomer_list'=>$data);
