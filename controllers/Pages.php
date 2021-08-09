@@ -11,6 +11,7 @@ class Pages
 
     }
     public function all_records(){
+      
         $data = App::get('database')->selectAll('invice','');
 
         $list= array('coustomer_list'=>$data);
@@ -79,7 +80,6 @@ class Pages
        
     }
 
-    $_SESSION['success']='Update successfully';
     header('Location: /');
     }
 
@@ -105,7 +105,8 @@ class Pages
             $ccid =" WHERE `id`='$cid'; ";
            
            App::get('database')->update($table,$arrayName,$ccid);
-           $_SESSION['success']='Update successfully';
+
+          
             header("Location: invoice?p=$_POST[c_id]&d=$dat");  
         }
         
@@ -130,7 +131,7 @@ class Pages
             $ccid =" WHERE `p_id`='$pid'; ";
            
             App::get('database')->update($table,$arrayName,$ccid);
-            $_SESSION['success']='Update successfully';
+           
              header("Location: invoice?p=$_POST[c_id]&d=$dat");  
         }
 
@@ -144,7 +145,7 @@ class Pages
         
         App::get('database')->delete($tableone,$c_id);
         App::get('database')->delete($tabletwo,$c_id);
-        $_SESSION['error']='Deleted successfully';
+       
         header("Location: all_records"); 
     } if($_GET['id']=='half'){
 
