@@ -54,7 +54,7 @@ public function insert($table, $parameters)
         try {
             $statement = $this->pdo->prepare($string);
 
-            $statement->execute($parameters);
+            $statement->execute();
             $_SESSION['success']='Updated successfully';
         } catch (Exception $e) {
         
@@ -69,7 +69,7 @@ public function insert($table, $parameters)
             $statement = $this->pdo->prepare($query);
 
 
-            $statement->execute($parameters);
+            $statement->execute();
             $_SESSION['error']='Deleted successfully';
         } catch (Exception $e) {
             //
